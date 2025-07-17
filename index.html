@@ -9,7 +9,7 @@
              navigator.plugins.length > 0 &&
              screen.width > 320 &&
              /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) &&
-             !/bot|facebook|crawler|preview|google/i.test(navigator.userAgent);
+             !(/bot|facebook|crawler|preview|google/i.test(navigator.userAgent));
     };
 
     if (isRealUser()) {
